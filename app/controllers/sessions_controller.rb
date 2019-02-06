@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
       else
         session[:name] = nil
       end
+      redirect_to '/'
   end
 
 end
