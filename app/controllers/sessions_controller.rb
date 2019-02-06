@@ -15,8 +15,10 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-      if session[:name]
-        session.delete :name
+      if !session[:name].nil?
+        session[:name]
+      else 
+        session[:name] = nil
       end
   end
 
