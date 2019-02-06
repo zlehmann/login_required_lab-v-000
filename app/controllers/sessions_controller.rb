@@ -12,12 +12,13 @@ class SessionsController < ApplicationController
       @name = session[:name]
       redirect_to '/show'
     end
+    binding.pry
   end
 
   def destroy
       if !session[:name].nil?
         session[:name]
-      else
+      else 
         session[:name] = nil
       end
   end
