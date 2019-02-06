@@ -1,15 +1,22 @@
 class SessionsController < ApplicationController
-  before_action :require_login
+
   def new
 
   end
 
   def create
-    session[:name] = params[:name]
-    redirect_to '/'
+    if params[:name] == nil || params[:name] == ""
+      redirect_to '/new'
+    else
+      session[:name] = params[:name]
+      @name = session[:name]
+      redirect_to '/show'
+    end
   end
 
-  def require_login
-    redirect_to '/new' unless session.include? :name
+  def destroy
+      session.delete :name
+      redirect_to '/'
   end
+
 end
