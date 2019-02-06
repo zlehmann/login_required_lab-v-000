@@ -14,6 +14,10 @@ class SessionsController < ApplicationController
     end
   end
 
+  def destroy 
+    session.delete :name
+  end
+
   def require_login
     redirect_to '/new' unless session.include? :name
   end
