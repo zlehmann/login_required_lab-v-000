@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    binding.pry
     if params[:name] == nil || params[:name] == ""
       redirect_to '/'
     else
@@ -12,7 +13,6 @@ class SessionsController < ApplicationController
       @name = session[:name]
       redirect_to '/show'
     end
-    binding.pry
   end
 
   def destroy
