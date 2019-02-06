@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :require_login
+
   def new
 
   end
@@ -22,7 +22,4 @@ class SessionsController < ApplicationController
       end
   end
 
-  def require_login
-    redirect_to '/new' unless session.include? :name
-  end
 end
